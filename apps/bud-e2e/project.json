@@ -1,0 +1,10 @@
+{
+  "name": "bud-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/bud-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["bud"],
+  "// targets": "to see all targets run: nx show project bud-e2e --web",
+  "targets": {}
+}
