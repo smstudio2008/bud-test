@@ -1,14 +1,30 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    standalone: true,
+    imports: [RouterModule, NgOptimizedImage],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styles: [
+        `
+            :host {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .title--bud {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    align-items: center;
+                }
+            }
+        `,
+    ],
 })
 export class AppComponent {
-  title = 'bud';
+    title = 'Bud';
 }

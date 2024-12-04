@@ -1,0 +1,13 @@
+/**
+ * Basic typography style for copy text
+ */
+
+body {
+    @extend .ibm-plex-serif-regular;
+    font-size: 1rem;
+}
+
+h1,
+h2 {
+    @extend .ibm-plex-serif-semibold;
+}
