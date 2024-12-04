@@ -1,0 +1,20 @@
+{
+    "name": "bud-admin-domain",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/bud-admin/domain/src",
+    "prefix": "bud-admin-domain",
+    "projectType": "library",
+    "tags": ["bud-admin-domain"],
+    "targets": {
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "libs/bud-admin/domain/jest.config.ts"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        }
+    }
+}

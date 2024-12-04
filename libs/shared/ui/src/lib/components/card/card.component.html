@@ -1,0 +1,17 @@
+<div class="card">
+    <ng-container *ngIf="imageUrl">
+        <img [ngSrc]="imageUrl" alt="{{ title }}" class="card-img-top" width="200" height="200" priority />
+    </ng-container>
+
+    <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ content }}</p>
+
+        <ng-container *ngIf="actions && actions.length">
+            <div class="card-actions">
+                <bud-ui-button *ngFor="let action of actions" [label]="action" type="primary" (clicked)="onActionClick(action)">
+                </bud-ui-button>
+            </div>
+        </ng-container>
+    </div>
+</div>

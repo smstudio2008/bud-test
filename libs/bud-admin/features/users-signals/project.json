@@ -1,0 +1,20 @@
+{
+    "name": "bud-admin-features-users-signals",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/bud-admin/features/users-signals/src",
+    "prefix": "bud-admin-users-signals",
+    "projectType": "library",
+    "tags": ["bud-admin-users-signals"],
+    "targets": {
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "libs/bud-admin/features/users-signals/jest.config.ts"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        }
+    }
+}

@@ -3,9 +3,11 @@ import { RouterModule } from '@angular/router';
 
 import { NgOptimizedImage } from '@angular/common';
 
+import { ButtonComponent } from '@bud/ui';
+
 @Component({
     standalone: true,
-    imports: [RouterModule, NgOptimizedImage],
+    imports: [RouterModule, NgOptimizedImage, ButtonComponent],
     selector: 'app-root',
     templateUrl: './app.component.html',
     styles: [

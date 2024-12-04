@@ -1,0 +1,29 @@
+.btn {
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+
+    &.primary {
+        background-color: #4b4b4b;
+        color: #fff;
+        border: none;
+    }
+
+    &.secondary {
+        background-color: #fcffbe;
+        color: #060606;
+        border: none;
+    }
+
+    &:disabled {
+        background-color: #c0c0c0;
+        cursor: not-allowed;
+    }
+
+    i.material-icons {
+        margin-right: 8px;
+    }
+}
