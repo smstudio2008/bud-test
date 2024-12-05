@@ -13,7 +13,7 @@ import { NgIf, NgClass } from '@angular/common';
 export class ButtonComponent {
     @Input() public label = 'Button';
     @Input() public type: 'primary' | 'secondary' = 'primary';
-    @Input() public disabled = false;
+    @Input() public disabled: boolean | undefined = false;
     @Input() public icon?: string;
 
     @Output() public clicked: EventEmitter<void> = new EventEmitter<void>();

@@ -1,25 +1,23 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { AbstractControl, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
     selector: 'bud-ui-input',
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.scss'],
     standalone: true,
-    imports: [FormsModule],
+    imports: [ReactiveFormsModule],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
+    @Input() public inputControl: any;
     @Input() public placeholder = 'Enter text';
-    @Input() public value = '';
-    @Input() public disabled = false;
+    @Input() public type = 'text';
 
-    @Output() public valueChange: EventEmitter<string> = new EventEmitter<string>();
+    @Output() public blurEvent = new EventEmitter<void>();
 
-    public onValueChange(event: Event): void {
-        const target = event?.target as HTMLInputElement;
-
-        this.valueChange.emit(target?.value);
+    public handleBlur(): void {
+        this.blurEvent.emit(); // Emit the blur event to the parent
     }
 }

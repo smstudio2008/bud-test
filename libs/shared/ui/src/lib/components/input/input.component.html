@@ -1,1 +1,3 @@
-<input type="text" [placeholder]="placeholder" [disabled]="disabled" [value]="value" (input)="onValueChange($event)" class="input-field" />
+@if (inputControl) {
+    <input [formControl]="inputControl" [type]="type" [placeholder]="placeholder" class="input-field" (blur)="handleBlur()"/>
+}

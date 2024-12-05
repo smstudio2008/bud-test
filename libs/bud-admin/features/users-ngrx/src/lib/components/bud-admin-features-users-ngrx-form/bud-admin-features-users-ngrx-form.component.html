@@ -1,0 +1,30 @@
+<form [formGroup]="userForm" class="dynamic-form" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <div class="form-group">
+        <label for="name">Name:</label>
+
+        <bud-ui-input 
+            [inputControl]="nameControl" 
+            [placeholder]="'Enter your name'" 
+            (blurEvent)="onBlur('name')">
+        </bud-ui-input>
+
+        <p *ngIf="nameControl.invalid && nameControl.touched" class="error-message">This field is required.</p>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+        <label for="email">Email:</label>
+
+        <bud-ui-input
+            [inputControl]="emailControl"
+            [type]="'email'"
+            [placeholder]="'Enter your email'"
+            (blurEvent)="onBlur('email')">
+        </bud-ui-input>
+
+        <p *ngIf="emailControl.invalid && emailControl.touched" class="error-message">Please enter a valid email address.</p>
+    </div>
+
+    <bud-ui-button [disabled]="userForm.invalid" type="secondary" label="Submit"></bud-ui-button>
+</form>
