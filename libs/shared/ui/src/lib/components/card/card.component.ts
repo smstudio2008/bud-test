@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 
@@ -7,7 +7,7 @@ import { ButtonComponent } from '../button/button.component';
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss'],
     standalone: true,
-    imports: [NgIf, NgClass, NgFor, ButtonComponent, NgOptimizedImage],
+    imports: [NgIf, NgFor, ButtonComponent, NgOptimizedImage],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {

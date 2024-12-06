@@ -1,13 +1,10 @@
 <form [formGroup]="userForm" class="dynamic-form" (ngSubmit)="onSubmit()">
+    <bud-ui-button class="undo" [buttonSize]="'small'" type="primary" (click)="undoInput()" label="Undo"></bud-ui-button>
     <!-- Name Field -->
     <div class="form-group">
         <label for="name">Name:</label>
 
-        <bud-ui-input 
-            [inputControl]="nameControl" 
-            [placeholder]="'Enter your name'" 
-            (blurEvent)="onBlur('name')">
-        </bud-ui-input>
+        <bud-ui-input [inputControl]="nameControl" [placeholder]="'Enter your name'" (blurEvent)="onBlur('name')"> </bud-ui-input>
 
         <p *ngIf="nameControl.invalid && nameControl.touched" class="error-message">This field is required.</p>
     </div>
@@ -16,15 +13,28 @@
     <div class="form-group">
         <label for="email">Email:</label>
 
-        <bud-ui-input
-            [inputControl]="emailControl"
-            [type]="'email'"
-            [placeholder]="'Enter your email'"
-            (blurEvent)="onBlur('email')">
+        <bud-ui-input [inputControl]="emailControl" [type]="'email'" [placeholder]="'Enter your email'" (blurEvent)="onBlur('email')">
         </bud-ui-input>
 
         <p *ngIf="emailControl.invalid && emailControl.touched" class="error-message">Please enter a valid email address.</p>
     </div>
 
-    <bud-ui-button [disabled]="userForm.invalid" type="secondary" label="Submit"></bud-ui-button>
+    <!-- Dynamic Phone Numbers -->
+    <div formArrayName="phoneNumbers" class="form-group">
+        <div class="info-container">
+            <label>Phone Numbers:</label>
+            <bud-ui-button (click)="addPhoneNumber()" type="secondary" [buttonSize]="'small'" label="Add Number"></bud-ui-button>
+        </div>
+
+        <div *ngFor="let phone of phoneNumbers.controls; let i = index" style="display: flex; align-items: center; gap: 1rem">
+            <bud-ui-input
+                [inputControl]="phone"
+                [placeholder]="'Enter phone number'"
+                (blurEvent)="onBlur('phoneNumbers', i)"
+            ></bud-ui-input>
+            <bud-ui-button (click)="removePhoneNumber(i)" [buttonSize]="'small'" type="primary" label="X"></bud-ui-button>
+        </div>
+    </div>
+
+    <bud-ui-button [buttonSize]="'large'" [disabled]="userForm.invalid" type="secondary" label="Submit"></bud-ui-button>
 </form>

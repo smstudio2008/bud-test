@@ -1,0 +1,42 @@
+.dynamic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .undo {
+        align-self: end;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .error-message {
+            font-size: 0.875rem;
+            color: #e74c3c;
+            margin-top: 5px;
+        }
+    }
+}

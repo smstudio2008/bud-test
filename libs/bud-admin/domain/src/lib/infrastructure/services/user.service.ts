@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+
+import { Observable } from 'rxjs';
 
 import { IUser } from '../../entities/users/user.model';
 
@@ -8,11 +9,11 @@ import { IUser } from '../../entities/users/user.model';
     providedIn: 'root',
 })
 export class UserService {
-    private apiUrl = 'https://dummyjson.com/users';
+    private apiUrl = 'https://dummyjson.com/users/add';
 
     private readonly _http: HttpClient = inject(HttpClient);
 
-    public getUsers(): Observable<IUser[]> {
-        return this._http.get<{ users: IUser[] }>(this.apiUrl).pipe(map((response) => response?.users));
+    public updateUser(userData: IUser): Observable<IUser> {
+        return this._http.post<IUser>(this.apiUrl, userData);
     }
 }

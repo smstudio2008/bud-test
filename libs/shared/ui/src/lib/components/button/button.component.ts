@@ -1,20 +1,20 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'bud-ui-button',
     templateUrl: './button.component.html',
     styleUrls: ['./button.component.scss'],
     standalone: true,
-    imports: [NgIf, NgClass],
+    imports: [NgClass],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
     @Input() public label = 'Button';
     @Input() public type: 'primary' | 'secondary' = 'primary';
+    @Input() public buttonSize?: 'small' | 'medium' | 'large' = 'medium';
     @Input() public disabled: boolean | undefined = false;
-    @Input() public icon?: string;
 
     @Output() public clicked: EventEmitter<void> = new EventEmitter<void>();
 

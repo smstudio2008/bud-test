@@ -1,31 +1,37 @@
 import { createReducer, on, Action } from '@ngrx/store';
-
 import * as UsersActions from '../actions/users.actions';
 import { UsersState } from '../models/users.models';
 
-export const USERS_FEATURE_KEY = 'users';
+export const USERS_FEATURE_KEY = 'userDetail';
 
 export const initialUsersState: UsersState = {
-    users: [],
+    user: null,
+    history: [],
     loaded: false,
     error: null,
 };
 
 const reducer = createReducer(
     initialUsersState,
-    on(UsersActions.initUsers, (state) => ({ ...state, loaded: false, error: null })),
-    on(UsersActions.loadUsersSuccess, (state, { users }) => ({
+    on(UsersActions.updateUsersFormInfo, (state, { user }) => ({
         ...state,
-        users,
-        loaded: true,
-        error: null,
+        history: state.user ? [...state.history, state.user] : state.history,
+        user,
     })),
-    on(UsersActions.deleteUser, (state, { userId }) => ({
+    on(UsersActions.undoUserFormUpdate, (state) => {
+        const previousUser = state.history[state.history.length - 1] || null;
+        const updatedHistory = state.history.slice(0, -1);
+        return {
+            ...state,
+            user: previousUser,
+            history: updatedHistory,
+        };
+    }),
+    on(UsersActions.updatedUserSuccess, (state, { user }) => ({
         ...state,
-        users: state.users.filter((user) => user.id !== userId),
-        error: null,
+        user: { ...state.user, ...user },
     })),
-    on(UsersActions.loadUsersFailure, (state, { error }) => ({ ...state, error }))
+    on(UsersActions.updatedUserFailure, (state, { error }) => ({ ...state, error }))
 );
 
 export function usersReducer(state: UsersState | undefined, action: Action) {

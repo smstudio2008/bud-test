@@ -14,11 +14,26 @@
 <div class="title-container">
     <h1 class="main-title">Welcome to Bud</h1>
     <h2 class="sub-title">Apprenticeship Management Software - Training & Delivery</h2>
-    <p class="description">
-        This is a demonstration of creating a basic Angular application featuring a dynamic form. The form includes fields for
-        <strong>Name</strong>, <strong>Email</strong>, and a dynamic list of <strong>Phone Numbers</strong>. It supports real-time
-        validation, saves data to the global state using NgRx, and showcases state management techniques.
-    </p>
+    
+    <ng-container *ngIf="selectUrl$ | async as hiddenURL; else elseTemplate">
+        <p class="description">
+            This is a demonstration of creating a production-ready Angular application using <strong>Nx</strong>, <strong>NgRx</strong>, or
+            <strong>SignalStore</strong>. It leverages a modular UI library and implements software architecture principles such as
+            <strong>Domain-Driven Design (DDD)</strong>.
+        </p>
+        <p class="description">
+            The purpose of this demo is to showcase how to build scalable, modular, and maintainable applications, aligned with the
+            requirements outlined in the test.
+        </p>
+    </ng-container>
+    
+    <ng-template #elseTemplate>
+        <p class="description">
+            The application features a dynamic form with fields for <strong>Name</strong>, <strong>Email</strong>, and a dynamic list of
+            <strong>Phone Numbers</strong>. It supports real-time validation, persists form data to the global state, and demonstrates
+            modern state management techniques suitable for production environments.
+        </p>
+    </ng-template>
 </div>
 
 <!-- Router Outlet -->

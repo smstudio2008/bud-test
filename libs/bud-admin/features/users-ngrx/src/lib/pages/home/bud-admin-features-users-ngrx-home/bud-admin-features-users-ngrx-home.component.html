@@ -2,5 +2,20 @@
     <h3 class="form-title">User Registration Form</h3>
     <p class="form-description">Please fill out the details below. Ensure all fields are valid before submission.</p>
 
-    <bud-admin-users-ngrx-form (submitUserFormData)="captureFormData($event)"></bud-admin-users-ngrx-form>
+    <bud-admin-users-ngrx-form
+        [userDetails]="userDataInfo$ | async"
+        (updateUserFormData)="captureFormData($event)"
+        (saveUserFormData)="saveData($event)"
+        (undoUserForm)="undoUpdate()"
+    >
+    </bud-admin-users-ngrx-form>
+</div>
+
+<div class="results">
+    <h4 class="results-title">Live Store Data</h4>
+    <p class="results-description">
+        This is a live update of the user details from the store. On form submission, the data will be sent to a
+        <strong>fake dummy API</strong>, which will fetch additional details.
+    </p>
+    <code class="results-code">{{ userDataInfo$ | async | json }}</code>
 </div>

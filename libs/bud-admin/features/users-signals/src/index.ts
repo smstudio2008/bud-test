@@ -1,1 +1,1 @@
-export * from './lib/bud-admin-features-users-ngrx.module';
+export * from './lib/components/bud-admin-features-users-signal-home/bud-admin-features-users-signal-home.component';

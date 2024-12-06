@@ -7,6 +7,6 @@ export const appRoutes: Route[] = [
     },
     {
         path: 'signal',
-        loadChildren: () => import('@bud-admin/users-signals').then((module) => module.BudAdminFeaturesUsersSignalModule),
+        loadComponent: () => import('@bud-admin/users-signals').then((mod) => mod.BudAdminFeaturesUsersSignalHomeComponent),
     },
 ];

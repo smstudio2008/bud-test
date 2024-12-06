@@ -5,17 +5,23 @@ import * as UsersActions from '../+state/bud-admin/actions/users.actions';
 
 import * as UsersSelectors from '../+state/bud-admin/selectors/users.selectors';
 
+import { IUser } from '../entities/users/user.model';
+
 @Injectable()
 export class UsersFacade {
     private readonly store = inject(Store);
 
     public loaded$ = this.store.pipe(select(UsersSelectors.getUserResults));
 
-    public loadUser(): void {
-        this.store.dispatch(UsersActions.initUsers());
+    public updateUserInfoToStore(user: IUser): void {
+        this.store.dispatch(UsersActions.updateUsersFormInfo({ user }));
     }
 
-    public deleteUser(userId: number): void {
-        this.store.dispatch(UsersActions.deleteUser({ userId }));
+    public saveUserOnServe(userData: IUser): void {
+        this.store.dispatch(UsersActions.updateUserInfo({ userData }));
+    }
+
+    public undoChanges(): void {
+        this.store.dispatch(UsersActions.undoUserFormUpdate());
     }
 }
