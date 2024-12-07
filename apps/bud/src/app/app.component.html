@@ -1,14 +1,61 @@
-<img
-    ngSrc="https://bud.co.uk/hs-fs/hubfs/bud-logo.webp?width=238&height=110&name=bud-logo.webp"
-    alt="{{ title }}"
-    width="238"
-    height="110"
-    priority
-/>
-
-<div class="title--bud">
-    <h1>Welcome to Bud</h1>
-    <h2>Apprenticeship Management Software - Training & Delivery</h2>
+<!-- Logo Section -->
+<div class="header">
+    <img
+        ngSrc="https://bud.co.uk/hs-fs/hubfs/bud-logo.webp?width=238&height=110&name=bud-logo.webp"
+        alt="Bud Logo"
+        class="logo"
+        width="238"
+        height="110"
+        priority
+    />
 </div>
 
+<!-- Title and Description Section -->
+<div class="title-container">
+    <h1 class="main-title">Welcome to Bud</h1>
+    <h2 class="sub-title">Apprenticeship Management Software - Training & Delivery</h2>
+    
+    <ng-container *ngIf="selectUrl$ | async as hiddenURL; else elseTemplate">
+        <p class="description">
+            This is a demonstration of creating a production-ready Angular application using <strong>Nx</strong>, <strong>NgRx</strong>, or
+            <strong>SignalStore</strong>. It leverages a modular UI library and implements software architecture principles such as
+            <strong>Domain-Driven Design (DDD)</strong>.
+        </p>
+        <p class="description">
+            The purpose of this demo is to showcase how to build scalable, modular, and maintainable applications, aligned with the
+            requirements outlined in the test.
+        </p>
+    </ng-container>
+    
+    <ng-template #elseTemplate>
+        <p class="description">
+            The application features a dynamic form with fields for <strong>Name</strong>, <strong>Email</strong>, and a dynamic list of
+            <strong>Phone Numbers</strong>. It supports real-time validation, persists form data to the global state, and demonstrates
+            modern state management techniques suitable for production environments.
+        </p>
+    </ng-template>
+</div>
+
+<!-- Router Outlet -->
 <router-outlet></router-outlet>
+
+<!-- User Cards Section -->
+<div class="users-container" *ngIf="selectUrl$ | async as hiddenURL">
+    <bud-ui-card
+        [title]="'User Form: NgRx State Management'"
+        [content]="'Explore profile features with NgRx state management.'"
+        [imageUrl]="'assets/images/ngrx.jpeg'"
+        [actions]="['Explore NgRx']"
+        (actionClick)="openLazyModule('ngrx')"
+    >
+    </bud-ui-card>
+
+    <bud-ui-card
+        [title]="'User Form: Signals State Management'"
+        [content]="'Learn about managing profiles using Angular Signals.'"
+        [imageUrl]="'assets/images/signal.jpg'"
+        [actions]="['Explore Signals']"
+        (actionClick)="openLazyModule('signal')"
+    >
+    </bud-ui-card>
+</div>

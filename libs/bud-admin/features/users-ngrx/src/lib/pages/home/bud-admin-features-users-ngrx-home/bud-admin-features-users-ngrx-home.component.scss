@@ -1,0 +1,72 @@
+/* Common Styles */
+$primary-color: #003366;
+$secondary-color: #555555;
+$light-background: #eaf4ff;
+$code-background: #f4f4f4;
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: $primary-color;
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: $light-background;
+    border-radius: 8px;
+    box-shadow: $box-shadow;
+    overflow-x: auto;
+}
+
+/* Form Styles */
+.form-title {
+    @extend .text-center;
+    @extend .text-primary;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.form-description {
+    @extend .text-center;
+    @extend .text-secondary;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Results Styles */
+.results {
+    @extend .container;
+
+    &-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        @extend .text-primary;
+        margin-bottom: 10px;
+    }
+
+    &-description {
+        font-size: 1rem;
+        @extend .text-secondary;
+        margin-bottom: 15px;
+    }
+
+    &-code {
+        display: block;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: $code-background;
+        padding: 10px;
+        border-radius: 4px;
+        color: #333;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+}
