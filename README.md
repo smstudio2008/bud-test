@@ -11,6 +11,7 @@ This Angular-based enterprise application is designed with scalability, modulari
 
 The app can be hosted on GitHub Pages or any other platform. Once deployed, it will be accessible via a specified URL.
 
+[https://smstudio2008.github.io/bud-test/](https://smstudio2008.github.io/bud-test/)
 ---
 
 ## Key Features
@@ -150,7 +151,7 @@ domain/users
     ```
 3. Run the application:
     ```bash
-    npm start
+    npx nx run bud:serve 
     ```
 
 
