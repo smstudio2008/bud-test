@@ -1,6 +1,8 @@
 
 # Bud User Management Application - Task
 
+![Alt text](https://bud.co.uk/hs-fs/hubfs/bud-logo.webp?width=238&height=110&name=bud-logo.webp)
+
 ## Project Overview
 
 This Angular-based enterprise application is designed with scalability, modularity, and maintainability in mind. The application uses **Nx Monorepo** for efficient library management, a custom reusable UI library for consistency, and modern Angular state management techniques such as **NgRx** or **SignalStore**. It demonstrates a production-ready architecture with a strong focus on clean code and Domain-Driven Design (DDD).
